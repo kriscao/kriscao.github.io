@@ -19,10 +19,12 @@
 # in the templates via {{ site.myvariable }}.
 
 title: ?!?
-email: kriscao AT google DOT com
-description: >- # this means to ignore newlines until "baseurl:
-  Some thoughts about NLP
-baseurl: "/blog" # the subpath of your site, e.g. /blog
+email: cao.kris AT google DOT com
+description: >- # this means to ignore newlines until "baseurl:"
+  A man's work is nothing but this slow trek to rediscover, through the detours
+  of art, those two or three great and simple images in whose presence his
+  heart first opened.
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://kriscao.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: kroscoo
 github_username:  kriscao
