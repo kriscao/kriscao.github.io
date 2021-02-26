@@ -15,8 +15,10 @@ induction.
 Briefly, a constituent is a group of words that together behaves as a single
 unit. For instance, in the sentence 'the dog chases the cat', we can rearrange
 'the dog' and 'the cat' into 'the cat chases the dog', which is also an
-acceptable sentence. However, 'the cat the dog chases' is not an acceptable
-sentence (on its own), which suggests 'the dog chases' is not a constituent.
+acceptable sentence. However, if we consider 'the big red dog', 'red dog' seems
+to be a constituent of the same type as 'dog', but 'the big red' doesn't seem to
+be a constituent: while it would appear that 'the' is a substitutable word, most
+linguists do not accept 'the' as a constituent by itself.[^1]
 
 Furthermore, constituents appear to be grouped together into different kinds:
 for example, whenever we see the phrase 'the dog' as a constituent, we can
@@ -28,7 +30,7 @@ Together, these two empirical facts suggest a general test for constituency: if,
 for a given span of words, we can find a substitutable example from a common
 small set of examples, then that span is a constituent. One common example is to
 use 'it' to substitute for noun phrases; another example is 'do (so)' for verb
-phrases. This test is known as the *substitution test*.[^1]
+phrases. This test is known as the *substitution test*.[^2]
 
 #### Aside: why do constituents matter?
 You may be wondering, dear reader, why we should care about the notion of
@@ -60,7 +62,7 @@ $$C$$ are types of constituent, or rules of the form $$A \to w$$ where $$A$$ is
 a constituent type and $$w$$ is a word. These grammars are called context-free
 because a rule only looks at the constituent $$A$$ and not the surrounding
 context of the constituent. This is quite a strong assumption to make, and there
-is evidence that it may not be true for human language[^2], but remember: all
+is evidence that it may not be true for human language[^3], but remember: all
 models are wrong, some models are useful.
 
 We've already seen one kind of constituent: 'the dog' is a *noun phrase*
@@ -124,8 +126,8 @@ possible to induce constituency structure directly from data without annotation?
 Here is where the story gets interesting. Can we set up a model so that we just
 feed it raw text data and it spits out some notion of constituency? If we could
 design such a model, it would be very interesting:
-1. For a start, it would be super cool: it always feels like magic to create
-   something from nothing.
+1. For a start, it would be super impressive result: it always feels like magic
+   to create something from nothing.
 2. We could compare lots of different variants of such models in their ability
    to learn constituency. This would hopefully tell us something about the
    nature of constituency in human language.
@@ -203,7 +205,7 @@ A, \dots, w_{n-1}$$ (that is, A and all the words outside A, but not the words
 inside A). While there is a recursive definition of $$\beta_{ij}(A)$$, one can
 also calculate it as the derivative of the total sentence likelihood w.r.t. the
 corresponding inside probability $$\alpha_{ij}(A)$$ (see [this Jason Eisner
-paper](https://www.aclweb.org/anthology/W16-5901/) for more details).[^3]
+paper](https://www.aclweb.org/anthology/W16-5901/) for more details).[^4]
 
 {% include image.html url="/assets/outside_tree.png" description="The outside
 probability of a constituent A is the probability of generating all the words
@@ -259,7 +261,7 @@ chases cats}}(A) \right)$$
 Again, by a similar line of reasoning, as we know that '\_ chases the cat'
 expects a noun phrase, $$\alpha_{\text{the dog}}(NP)$$ should be high, and we've
 correctly identified that 'it' and 'the dog' are both likely to be noun phrases
-in our simple model of constituency. Isn't this cool?
+in our simple model of constituency. Isn't this neat?
 
 As a bonus, the $$\beta$$ probabilities naturally fall out of the learning
 process for unsupervised PCFGs, and they encode a test by which we as humans
@@ -279,7 +281,7 @@ lose sight of that when buried under mountains of mathematical notation.
 A lot of the material in this blog post is firmly classical (i.e. pre-neural).
 Does anything carry over to the neural era? Well, while the inside-outside
 algorithm was originally developed for CFGs, the notion of combing content and
-context representations can be neuralised, and a [really cool
+context representations can be neuralised, and a [really nice
 paper](https://www.aclweb.org/anthology/N19-1116/) shows that the resulting
 structured neural algorithm also develops a very sophisticated notion of
 constituency from scratch.
@@ -288,8 +290,10 @@ constituency from scratch.
 
 ### Footnotes: 
 
-[^1]: There are also other tests for constituency, but in this post we will focus on the substitution test.
+[^1]: Whether 'the' is a constituent is a thorny issue. Another definition of a constituent is (roughly) something that can refer; under this definition, 'the' is not a constituent.
 
-[^2]: Namely, CFGs cannot handle something called [cross-serial dependencies](https://en.wikipedia.org/wiki/Cross-serial_dependencies) which have been posited to exist in Dutch and Swiss German.
+[^2]: There are also other tests for constituency, but in this post we will focus on the substitution test.
 
-[^3]: Historically, the inside-outside algorithm was used to re-estimate the PCFG parameters during unsupervised learning. I always thought this was incomprehensible until I realised that all the inside-outside algorithm does is take gradient steps on the log-likelihood of a sentence until convergence, and that the outside algorithm naturally falls out of the gradient calculation.
+[^3]: Namely, CFGs cannot handle something called [cross-serial dependencies](https://en.wikipedia.org/wiki/Cross-serial_dependencies) which have been posited to exist in Dutch and Swiss German.
+
+[^4]: Historically, the inside-outside algorithm was used to re-estimate the PCFG parameters during unsupervised learning. I always thought this was incomprehensible until I realised that all the inside-outside algorithm does is take gradient steps on the log-likelihood of a sentence until convergence, and that the outside algorithm naturally falls out of the gradient calculation.
