@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Constituency, Substitution tests and the Inside-Outside Algorithm"
-date:   2021-02-23 17:00:00 +0000
+date:   2021-02-26 12:00:00 +0000
 usemathjax: true
 ---
 ## A tale of a theory and an algorithm
