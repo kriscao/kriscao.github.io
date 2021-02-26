@@ -28,9 +28,9 @@ the general syntactic type of the constituent -- that is, 'dog'.
 
 Together, these two empirical facts suggest a general test for constituency: if,
 for a given span of words, we can find a substitutable example from a common
-small set of examples, then that span is a constituent. One common example is to
-use 'it' to substitute for noun phrases; another example is 'do (so)' for verb
-phrases. This test is known as the *substitution test*.[^2]
+small set of examples, then that span is a constituent.[^span] One common
+example is to use 'it' to substitute for noun phrases; another example is 'do
+(so)' for verb phrases. This test is known as the *substitution test*.[^2]
 
 #### Aside: why do constituents matter?
 You may be wondering, dear reader, why we should care about the notion of
@@ -148,7 +148,7 @@ Warning: here's where the exposition becomes a bit more technical and maths-y.
 Recall that a PCFG assigns a probability to a particular parse $$T$$ of a
 sentence $$S$$:
 
-$$P(S, T) = \prod_{r \in S} P(r)$$
+$$P(S, T) = \prod_{r \in T} P(r)$$
 
 where each $$r$$ is an instance of a CFG grammar rule, and $$P(r)$$ is the
 probability of that rule, which is one of the parameters of the model (our
@@ -235,11 +235,11 @@ each of our canonical examples what type of constituent it is, so we know that,
 for instance, $$\alpha_{\text{it}}(NP) \simeq 1$$ (this is just saying that we
 think 'it' is very likely to be a noun phrase). If we now try to maximise the
 probability of the sentence 'the dog chases the cat', knowing that 'it chases
-the cat' is a highly probably sentence, what happens to the resulting inside and
+the cat' is a highly probable sentence, what happens to the resulting inside and
 outside probabilities?
 
 Well, since we know $$P(S) = \sum_A P(S, A) = \sum \alpha(A) \beta(A)$$ (this
-statement says that we can generate a sentence by generating a constituent A,
+statement says that we can generate a sentence by picking a constituent type A,
 generating what's inside of A, what's outside of A, and then summing over all
 possible constituents A), we can see that
 
@@ -280,7 +280,7 @@ lose sight of that when buried under mountains of mathematical notation.
 
 A lot of the material in this blog post is firmly classical (i.e. pre-neural).
 Does anything carry over to the neural era? Well, while the inside-outside
-algorithm was originally developed for CFGs, the notion of combing content and
+algorithm was originally developed for CFGs, the notion of combining content and
 context representations can be neuralised, and a [really nice
 paper](https://www.aclweb.org/anthology/N19-1116/) shows that the resulting
 structured neural algorithm also develops a very sophisticated notion of
@@ -291,6 +291,8 @@ constituency from scratch.
 ### Footnotes: 
 
 [^1]: Whether 'the' is a constituent is a thorny issue. Another definition of a constituent is (roughly) something that can refer; under this definition, 'the' is not a constituent.
+
+[^span]: Do all constituents have to be continuous spans of text? Some linguists allow the possibility of discontinuous constituents, and indeed there are [efficient parsing algorithms](https://www.aclweb.org/anthology/2020.emnlp-main.219/) for certain formalisms.
 
 [^2]: There are also other tests for constituency, but in this post we will focus on the substitution test.
 
