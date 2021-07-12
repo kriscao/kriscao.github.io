@@ -228,15 +228,14 @@ our canonical examples for that span, and seeing whether the result is a
 grammatical sentence.
 
 Now, we'd like to search for the substitution test in PCFGs. We know that
-'gapped' sentences correspond to outside probabilities, so the
-sentence-with-gap '\_ chases the cat' has associated with it an outside
-probability $$\beta(A)$$ for each possible constituency type A. We also know for
-each of our canonical examples what type of constituent it is, so we know that,
-for instance, $$\alpha_{\text{it}}(NP) \simeq 1$$ (this is just saying that we
-think 'it' is very likely to be a noun phrase). If we now try to maximise the
-probability of the sentence 'the dog chases the cat', knowing that 'it chases
-the cat' is a highly probable sentence, what happens to the resulting inside and
-outside probabilities?
+'gapped' sentences correspond to outside probabilities, so the sentence-with-gap
+'\_ chases the cat' has associated with it an outside probability $$\beta(A)$$
+for each possible constituency type A. We also know for each of our canonical
+examples what type of constituent it is, so we know that, for instance,
+$$\alpha_{\text{it}}(NP) >> 0$$ (we believe that 'it' is a likely noun phrase).
+If we now try to maximise the probability of the sentence 'the dog chases the
+cat', knowing that 'it chases the cat' is a highly probable sentence, what
+happens to the resulting inside and outside probabilities?
 
 Well, since we know $$P(S) = \sum_A P(S, A) = \sum \alpha(A) \beta(A)$$ (this
 statement says that we can generate a sentence by picking a constituent type A,
@@ -285,6 +284,14 @@ context representations can be neuralised, and a [really nice
 paper](https://www.aclweb.org/anthology/N19-1116/) shows that the resulting
 structured neural algorithm also develops a very sophisticated notion of
 constituency from scratch.
+
+Finally, recall that outside probabilities encode 'gapped' probabilities. If
+these seem familiar to you, that's because gapped probabilities are fundamental
+in modern NLP as the masked language modelling objective that models like BERT
+use as a training objective. The big difference is that BERT does not make any
+independence assumptions to calculate these gapped probabilities, but I believe
+that it would be an interesting exercise to try to extract an unsupervised
+parser out of BERT.
 
 -----
 
