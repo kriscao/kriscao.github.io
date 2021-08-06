@@ -95,6 +95,46 @@ you can hear him introducing what musical elements are coming up next ('to the
 top to the top', 'to the bridge', 'bring the beat back'). If it's good enough
 for the KLF, it's good enough for you and me.
 
+### What does 'catchy' mean?
+(thanks to [Guy Emerson](https://www.cai.cam.ac.uk/people/dr-guy-emerson) for
+discussions which led to this section)
+
+I've talked a lot about 'catchiness' in this post, but I haven't really offered
+a definition of what makes a song (or paper) catchy. In part, this is because
+it's hard to pin down: simple doesn't necessarily mean catchy, although it's a
+part of it. Neither does it mean you should dumb down your research in an effort
+to reach as many people as possible.
+
+The best description I can give is that a paper is catchy if someone reading it
+immediately slaps their head and thinks 'why didn't I think of that'. For
+example, playground rhymes are catchy, and so is masked language modelling. The
+goal of your paper is to deliver your idea like a virus inside the reader's
+brain and help it take up permanent lodging. I think it's therefore helpful to
+consider the payload (the research idea) and the delivery mechanism (the actual
+paper writing itself) separately.
+
+Having a good research idea is something that largely comes from experience in
+the field. It helps to read a lot of papers, so you can spot if there are any
+obvious holes in the existing literature that you can fill. A good way to
+generate a new idea is to combine two zeitgeist-y ideas into one (in my [first
+paper](https://aclanthology.org/W16-1603/) I put an RNN inside word2vec, which
+is possibly the most 2016 thing you can think of). As you develop your own
+research taste, you'll get more and more ideas, and then the difficulty becomes
+separating between good and bad ideas. This is where it helps to have friends to
+test ideas on: mention your ideas early and often to them, and see how they
+react.
+
+However, it's no use just having good ideas, you have to communicate them to
+other people as well, otherwise the idea will just wither and die. In NLP, the
+perferred delivery mechanism is the 8 page double-column conference paper, and
+I've already given some paper writing tips above. Sometimes, the idea is so good
+you don't really need to dress it up too much for it to be transmitted; most of
+the time, you need to make the reader interested in your paper at least a little
+bit. What problem are you trying to solve? What new technique are you
+introducing, and is it more widely applicable? A little bit of motivation goes a
+long way, and eases the path of your research idea along the optic nerve from
+the eyes to the brain of the reader.
+
 ### You too can write a hit paper!
 For me, the most important message from the Manual is that there's nothing
 stopping you from writing a hit song. The Manual updates the punk DIY attitude
