@@ -12,6 +12,9 @@ natural language processing and machine learning.
 Scholar](https://scholar.google.com/citations?user=_KBP8ZgAAAAJ&hl=en) for more
 info)
 
+- ### [You should evaluate your language model on marginal likelihood over tokenizations](https://arxiv.org/abs/2109.02550)
+Kris Cao, Laura Rimell
+
 - ### [Pitfalls of Static Language Modelling](https://arxiv.org/abs/2102.01951)
 Angeliki Lazaridou, Adhiguna Kuncoro, Elena Gribovskaya, Devang Agrawal, Adam
 Liska, Tayfun Terzi, Mai Gimenez, Cyprien de Masson d'Autume, Sebastian Ruder,
