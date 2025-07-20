@@ -3,9 +3,11 @@ layout: page
 title: About
 permalink: /about/
 ---
-I am a research scientist working in the Language team at DeepMind. I'm
-interested in a broad range of phenomena at the intersection of linguistics,
-natural language processing and machine learning.
+I am a member of technical staff at Cohere, working on model pretraining. For my
+day job, I think about things such as tokenization, trustworthy evals, signal at
+small scales, model optimization, and data infrastructure. In the past, I have
+worked on topics such as (Unicode) character-based language modelling, deep
+generative models applied to language, and structured meaning representations.
 
 # Publications
 (see my [Google
